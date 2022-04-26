@@ -86,11 +86,11 @@ while generationCounter < MAX_GENERATIONS:
     offspring = selectionTournament(population, len(population))
     offspring = list(map(clone, offspring))
     for child1, child2 in zip(offspring[1::2], offspring[::2]):
-        if random.random()<P_CROSSOVER:
+        if random.random() < P_CROSSOVER:
             cxOnePoint(child1, child2)
 
     for ind in offspring:
-        if random.random()<P_MUTATION:
+        if random.random() < P_MUTATION:
             mutation(ind, mutarate=1./ONEMAXLENGTH)
 
     freshFitValues = list(map(oneMaxFitness, offspring))
